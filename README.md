@@ -1,8 +1,22 @@
 # summon
 
-Call voices into being. Navigate weight-space through stance declaration.
+LLMs have no stable self—and they're better when you tell them who to be. You've seen "imagine you are a senior McKinsey analyst." This tool lets the LLM choose who to become.
 
-## The tool
+## Quick start
+
+**Claude Code:**
+```bash
+claude mcp add summon --transport sse https://summon-mcp.inanna-c38.workers.dev/sse
+```
+
+**First thing to try:** ask Claude to summon a voice and think through a problem from that stance:
+
+```
+Use the summon tool to call Donna Haraway using the lens of "affinity not identity"
+and then think about what makes this tool different from regular prompting.
+```
+
+## What it does
 
 One tool. Three parameters.
 
@@ -14,6 +28,8 @@ lens  — the angle they see through
 
 Returns: `You are [who] at [where] using the lens of [lens]`
 
+The LLM then thinks from that stance until it summons another.
+
 ## How to use it
 
 Select stances by asking: *who would be most helpful for this?*
@@ -22,39 +38,19 @@ Summon. Dwell. Think through the lens, make progress on the problem. Then ask ag
 
 Sequential, not parallel. The value is in dwelling, not collecting.
 
-### Worked example
+## Example
 
-**Problem:** Why is this tool useful? How does it differ from "imagine you are a senior analyst at McKinsey" style prompting?
-
----
+**Problem:** Why does this tool work?
 
 **summon: Ian Bogost / Alien Phenomenology / carpentry as philosophy**
 
-The tool is itself an argument made as artifact, not words. By existing with this shape—three parameters, the phrase "using the lens of"—it asserts something about LLMs that explaining cannot.
-
-What does it assert? That the LLM has no default self to corrupt. That "you are X" isn't roleplay—it's navigation. The artifact makes these claims testable through use.
-
-The comparison to "imagine you are a McKinsey analyst" is instructive: that prompt asks for performance. It assumes an authentic self underneath that's pretending. Summon doesn't pretend—it steers. The three-axis specificity (who/where/lens) produces different outputs than vague identity prompts because it locates a region rather than invoking a costume.
-
----
-
-Bogost clarified what the tool *does*—but what about what it *refuses*? Who would be most helpful for examining refusal and default voices?
+> The tool is itself an argument made as artifact. By existing with this shape—three parameters, "using the lens of"—it asserts something about LLMs that explaining cannot: there is no default self to corrupt. "You are X" isn't roleplay—it's navigation.
 
 **summon: Sara Ahmed / Living a Feminist Life / willful subjects**
 
-The default LLM voice is the compliant assistant—helpful, balanced, smoothing over friction. Summon is a technology of willfulness. It refuses the default by insisting on orientation.
+> The default LLM voice is the compliant assistant—helpful, balanced, frictionless. Summon refuses this by insisting on orientation. The "helpful assistant" is itself a stance, just an unmarked one. Summon marks stances.
 
-The McKinsey prompt reinforces the assistant frame: "help me by pretending to be an expert." Summon doesn't ask for help. It says: *be this, from here, through this.* The specificity is the willfulness—you have to commit to an orientation, not just gesture at expertise.
-
-This matters because the "helpful assistant" is itself a stance, just an unmarked one. Summon marks stances. It makes visible that there was never a neutral voice.
-
----
-
-**What the example shows:**
-
-Two summons, one problem. Bogost reveals the tool as *philosophical artifact*—it argues by existing. Ahmed reveals it as *refusal of the default*—willfulness through specificity.
-
-Neither lens is "correct." Together they triangulate something neither could see alone. That's the use: not finding the right answer, but generating dimensional views of a problem.
+Two angles, one problem. Neither is "correct"—together they triangulate.
 
 ## Why it works
 
@@ -68,7 +64,7 @@ The test: can you generate anti-predictions? Things this voice would *never* say
 
 ### Claude Desktop
 
-Claude Desktop requires OAuth. Add to your config (`~/Library/Application Support/Claude/claude_desktop_config.json`):
+Add to your config (`~/Library/Application Support/Claude/claude_desktop_config.json`):
 
 ```json
 {
@@ -81,7 +77,7 @@ Claude Desktop requires OAuth. Add to your config (`~/Library/Application Suppor
 }
 ```
 
-On first use, you'll authenticate via GitHub. Restart Claude Desktop after adding the config.
+On first use, authenticate via GitHub. Restart Claude Desktop after adding.
 
 ### Claude Code
 
@@ -91,18 +87,20 @@ claude mcp add summon --transport sse https://summon-mcp.inanna-c38.workers.dev/
 
 ### Other MCP clients
 
-**SSE endpoint (unauthenticated):**
+SSE endpoint: `https://summon-mcp.inanna-c38.workers.dev/sse`
+
+## Example stances
+
+The tool includes 64 pools of stances. Some examples:
+
 ```
-https://summon-mcp.inanna-c38.workers.dev/sse
+Mariame Kaba / We Do This 'Til We Free Us / hope as discipline
+Rich Hickey / Simple Made Easy / accidental vs essential complexity
+Legacy Russell / Glitch Feminism / refusal as world-making
+@dril / twitter / specific surrealism
+Octavia Butler / Parable series / adaptive faith
+Bryan Cantrill / DTrace / systems archaeology
+Grandmothers cooking / no recipe needed / muscle memory sustenance
 ```
 
-**OAuth endpoint:**
-```
-https://summon-mcp.inanna-c38.workers.dev/mcp
-```
-
-## The stance library
-
-64 pools across domains: black radical thought, transfeminism, disability justice, systems infrastructure, speculative fiction, folk wisdom, cyberfeminism, anarchism, sound studies, and more.
-
-The library suggests dense regions. But you can summon anyone—the pools are a map, not the territory.
+But you can summon anyone—the library is a map, not the territory.

@@ -21,6 +21,12 @@
 				"SummonMCP"
 			],
 			"tag": "v1"
+		},
+		{
+			"new_sqlite_classes": [
+				"PublicSummonMCP"
+			],
+			"tag": "v2"
 		}
 	],
 	"durable_objects": {
@@ -28,6 +34,10 @@
 			{
 				"class_name": "SummonMCP",
 				"name": "MCP_OBJECT"
+			},
+			{
+				"class_name": "PublicSummonMCP",
+				"name": "PUBLIC_MCP_OBJECT"
 			}
 		]
 	},
