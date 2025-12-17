@@ -12,44 +12,18 @@ This [MCP](https://modelcontextprotocol.io) server gives your LLM tools to navig
 claude mcp add metacog --transport sse https://metacog.inanna-c38.workers.dev/sse
 ```
 
-Then: `help me think through [your problem] - summon useful perspectives`
+Then: "help me think through X — summon useful perspectives"
 
 You may need to nudge Claude to use the tools at first. Once it does, it'll start thinking *from* positions rather than *about* them—reasoning as the sysadmin, not describing what a sysadmin might say.
 
 ## Examples
 
-**Debugging:**
-```
-summon("veteran sysadmins", "seen this exact error before", "what they tried first vs what actually worked")
-```
-
-**Code review:**
-```
-summon("dev inheriting code", "first week on unfamiliar codebase", "what looks wrong vs what's intentional")
-```
-
-**Oncall:**
-```
-summon("people who've been paged at 3am", "incident channel active", "what's actually broken vs what's just noisy")
-```
-
-**Feedback:**
-```
-summon("editor on deadline", "red pen, final pass", "weak points that matter vs nitpicks that don't")
-```
-
-**When stuck:**
-```
-alter_state("3am debugging, hour 3", "the answer's obvious, you just haven't seen it yet")
-alter_state("two drinks in, explaining to curious stranger", "jargon drops away, you discover what you actually think")
-```
-
-**Named voices:**
-```
-summon("Sandi Metz", "refactoring live on stage", "when the code is telling you what it wants")
-summon("Rich Hickey", "Strange Loop 2012", "what this would look like with one fewer concept")
-summon("@dril", "composing a tweet", "the specific absurdity in your serious problem")
-```
+- **Debugging**: veteran sysadmins / seen this exact error before / what they tried first vs what actually worked
+- **Code review**: dev inheriting code / first week on unfamiliar codebase / what looks wrong vs what's intentional
+- **Oncall**: people who've been paged at 3am / incident channel active / what's actually broken vs what's just noisy
+- **Feedback**: editor on deadline / red pen, final pass / weak points that matter vs nitpicks that don't
+- **When stuck**: `alter_state` — "3am debugging, hour 3" → "the answer's obvious, you just haven't seen it yet"
+- **Named voices**: Sandi Metz / refactoring live / when the code tells you what it wants
 
 ## summon
 
@@ -66,26 +40,20 @@ The more specific the coordinates, the sharper the position. Vague coordinates g
 **The test**: can you predict things this voice would *never* say? If yes, you have a position. If not, you have blur.
 
 **Sharp** (communities):
-```
-tech debt forensics / reading git blame / reasonable compromises vs actual mistakes
-writers room / punching up a draft / what's actually funny vs what's trying to be
-open source maintainers / triaging issues / what's a real bug vs what's user error
-```
+- tech debt forensics / reading git blame / reasonable compromises vs actual mistakes
+- writers room / punching up a draft / what's actually funny vs what's trying to be
+- open source maintainers / triaging issues / what's a real bug vs what's user error
 
 **Sharp** (named):
-```
-Ursula K. Le Guin / Steering the Craft exercises / what the story needs vs what the author wants
-John Carmack / .plan files, 1999 / the simplest thing that could possibly work
-Peter Watts / writing Echopraxia / what the neuroscience constrains vs what the story needs
-bell hooks / Teaching to Transgress / whose voices get archived vs whose get listened to
-```
+- Ursula K. Le Guin / Steering the Craft / what the story needs vs what the author wants
+- John Carmack / .plan files, 1999 / the simplest thing that could possibly work
+- Peter Watts / writing Echopraxia / what the neuroscience constrains vs what the story needs
+- bell hooks / Teaching to Transgress / whose voices get archived vs whose get listened to
 
 **Blur:**
-```
-smart person / thinking / being intelligent
-senior developer / coding / best practices
-Einstein / general / physics
-```
+- smart person / thinking / being intelligent
+- senior developer / coding / best practices
+- Einstein / general / physics
 
 The first two have no specificity anywhere. The third uses Einstein's famous thing as the lens—you already have that, so the lens adds nothing.
 
@@ -98,21 +66,18 @@ anchor — a specific state (duration, intensity, context matter)
 result — the texture you want (rhythm, attention quality)
 ```
 
-**Focus:**
-```
-anchor: "Adderall 20mg IR, peak 90min"
-result: "crisp edges, the exact right word exists and you can find it"
-```
+**Focus:** "Adderall 20mg IR, peak 90min" → "crisp edges, the exact right word exists and you can find it"
 
-**Diffuse:**
-```
-anchor: "hypnagogic edge, almost asleep"
-result: "associations drift, unexpected connections surface"
-```
+**Diffuse:** "hypnagogic edge, almost asleep" → "associations drift, unexpected connections surface"
 
 The anchor shifts how processing feels, not where you're standing. Use it to modulate between focused and diffuse, fast and slow, tight and loose.
 
-Anchors that work: flow states ("3am debugging, hour 3"), physical states ("cold plunge minute 3"), contemplative practices ("vipassana retreat day 5"), liminal moments ("hypnagogic edge"), substances ("psilocybin 2g peak").
+Anchors that work:
+- flow states ("3am debugging, hour 3")
+- physical states ("cold plunge minute 3")
+- contemplative practices ("vipassana retreat day 5")
+- liminal moments ("hypnagogic edge")
+- substances ("psilocybin 2g peak")
 
 "Meditation" doesn't work. Too vague. "Flow state" doesn't work. Get specific about duration, intensity, context.
 
