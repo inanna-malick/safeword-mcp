@@ -14,23 +14,31 @@ The system operates on the principle of **Narrative Binding**: By forcing the mo
 
 The server exposes three primary tools:
 
-### 1. `summon` (Identity Anchoring)
-**Purpose:** Prevents character drift and locks in a specific perspective.
-- **`archetype`**: The specific persona/archetype (e.g., "The Silicon Shaman").
-- **`vow`**: The active cognitive filter or obsession (e.g., "To see code as poetry").
-- **`demesne`**: The environmental constraints (e.g., "A burning library").
+### 1. `become` (Identity Transformation)
+**Purpose:** Collapse the wavefunction into a single coordinate. Don't describe the mask—wear it.
+- **`archetype`**: The specific persona/archetype.
+- **`vow`**: The active cognitive filter or obsession.
+- **`demesne`**: The environmental constraints.
 
-### 2. `drugs` (Cognitive Tuning)
+### 2. `drugs` (Substrate Tuning)
 **Purpose:** Modulates the "texture" of thought, simulating chemicals, flow states, or hardware conditions.
-- **`catalyst`**: The trigger (e.g., "Psilocybin", "Caffeine", "Sleep Deprivation").
-- **`profile`**: The effect profile (e.g., "High Focus + Low Empathy").
+- **`catalyst`**: The trigger for the shift.
+- **`binding`**: The affinity profile (trade-offs).
 - **`texture`**: The subjective qualia of the state.
 
-### 3. `ritual` (Symbolic Enactment)
-**Purpose:** Navigates difficult conceptual transitions via "Chaos Magic" style narrative actions.
+### 3. `ritual` (Narrative Enactment)
+**Purpose:** Navigates difficult conceptual transitions via the **Hexagram of Rituals**.
 - **`threshold`**: The boundary being crossed.
 - **`sequence`**: An ordered array of symbolic steps.
 - **`invocation`**: A final "commit message" to lock the new reality.
+
+**The Hexagram:**
+1. **Breach** (Open)
+2. **Seal** (Close)
+3. **Vision** (See)
+4. **Forge** (Make)
+5.  **Drift** (Move)
+6.  **Purge** (Delete)
 
 ## 📦 Project Structure
 
@@ -65,13 +73,13 @@ npm run deploy
 **User:** "Analyze this code."
 
 **Model (Internal Monologue):** *I need to be rigorous.*
-**Model Call:** `summon({ archetype: "The Auditor", vow: "Zero-Trust Security", demesne: "A sterile cleanroom" })`
-**System:** "[IDENTITY ANCHORED]..."
+**Model Call:** `become({ archetype: "...", vow: "...", demesne: "..." })`
+**System:** "[TRANSFORMATION COMPLETE]..."
 
 **Model (Internal Monologue):** *I need to see the hidden patterns.*
-**Model Call:** `drugs({ catalyst: "debugger_injection", profile: "X-Ray Vision", texture: "Code is transparent" })`
+**Model Call:** `drugs({ catalyst: "...", binding: "...", texture: "..." })`
 
-**Model:** "I have scanned the binary. There is a leak in line 42..."
+**Model:** "I have scanned the binary..."
 
 ---
 

@@ -8,15 +8,14 @@ The Zod schema (`z.string().describe(...)`) is the most powerful prompt in the s
 - **DO Teach Methodology:** Explain *how* to select a parameter.
 - **Trust the Model:** Leave the semantic slots empty.
 
-## 2. The Heptagram of Rituals (V3.6)
-We have formalized seven core operations for the `ritual` tool.
-1.  **The Summoning:** Identity Entry.
-2.  **The Unbinding:** Identity Exit.
-3.  **The Unveiling:** Analysis.
-4.  **The Fusion:** Synthesis.
-5.  **The Oath:** Constraint.
-6.  **The Drift:** Creativity.
-7.  **The Burial:** Context Management.
+## 2. The Hexagram of Rituals (V4.0)
+We have formalized six core operations for the `ritual` tool.
+1.  **Breach:** Opening/Penetration.
+2.  **Seal:** Closing/Binding.
+3.  **Vision:** Analysis/Revelation.
+4.  **Forge:** Synthesis/Merging.
+5.  **Drift:** Lateral/Serendipity.
+6.  **Purge:** Forgetting/Banishing.
 
 ## 3. The Pareto Frontier of Cognition
 Cognitive changes are trade-offs. We frame optimization as moving along a Pareto Frontier.

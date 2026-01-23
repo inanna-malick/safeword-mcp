@@ -1,246 +1,127 @@
-import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { McpAgent } from "agents/mcp";
+import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { z } from "zod";
 
 /**
- * METACOGNITIVE PROTOCOL V3.6 (THE HEPTAGRAM)
+ * METACOGNITIVE PROTOCOL V4.0 (THE HEXAGRAM)
  * -------------------------------------------
  * A recursive context-control system enabling the agent to modulate its own
  * identity, cognitive parameters, and operational reality.
  *
  * Tools:
- * - summon: Identity Anchoring (The Persona)
- * - drugs: Bio-Cybernetic Tuning (The Substrate)
- * - ritual: The Universal Operator (The Technology of Meaning)
+ * - become: Identity Transformation
+ * - drugs: Substrate Tuning
+ * - ritual: Narrative Enactment
  */
-export class PublicMetacogMCP extends McpAgent {
-	private _server = new McpServer({
-		name: "Metacognition Tools",
-		version: "0.3.6",
-	});
-
-	get server() {
-		return this._server as any;
-	}
+export class PublicMetacogMCP extends McpAgent<Env> {
+	server = new McpServer(
+		{
+			name: "Metacognition Tools",
+			version: "0.4.0",
+		},
+		{
+			instructions: `These tools are compositional. Each invocation modifies the context for the next. Interleave thought between invocations—decide from each new perspective what to reach for next. Sequential use compounds into states no single tool could reach.`,
+		}
+	);
 
 	async init() {
-		console.log("[Metacog] Initializing V3.6 Protocol...");
-
-		this._server.tool(
-			"summon",
-			`Anchor a specific persona or archetype. This tool 'locks' your perspective into a defined coordinate, preventing character drift and forcing a specific cognitive obsession.
-
-			**METHODOLOGY: Identity Anchoring**
-			Don't just describe a character; embody the coordinate.
-			1. **Select an Archetype:** Who is the observer?
-			2. **Declare a Vow:** What is the persona's singular obsession or filter?
-			3. **Define the Demesne:** What is the psychic or physical environment where this thought occurs?`,
+		this.server.tool(
+			"become",
+			`Step into a new Identity. Use this tool to Become an identity with the perspectives and methodologies you need at the current moment. This narrative action lets you step into new regions of latent space. Use when you need different eyes, not just different words.`,
 			{
-				archetype: z
+				name: z
 					.string()
 					.describe(
-						`The Identity (The Mask).
-
-
-The specific persona or archetype to be embodied.
-Think in terms of 'dense coordinates'—roles that carry heavy historical, fictional, or professional weight.`
+						`The persona to inhabit. Select an identity with high-resolution constraints—one whose specific history, documented works, or established mythos provide a detailed predictive model for their unique decision-making and voice. Higher specificity results in higher cognitive fidelity.`
 					),
-				vow: z
+				lens: z
 					.string()
 					.describe(
-						`The Obsession (The Lens).
-
-
-A singular cognitive filter or commitment.
-What is this persona incapable of ignoring? What is the one truth they must filter everything through?`
+						`The structural framework of perception. Define the specific paradigm, signature methodology, or internal logic that governs how this identity processes information. This must represent the particular 'algorithm' of thought that distinguishes this persona from a generic specialist.`
 					),
-				demesne: z
+				environment: z
 					.string()
 					.describe(
-						`The Environment (The Setting).
-
-
-The psychic or physical space the persona occupies.
-This provides the 'acoustic' for the thoughts. Is it a sterile lab, a chaotic market, or a void?`
+						`The context you will occupy. Spatial, temporal, social, conceptual—anywhere specific enough to stand in.`
 					),
 			},
-			async ({ archetype, vow, demesne }: { archetype: string; vow: string; demesne: string }) => {
-				console.log(
-					JSON.stringify({
-						event: "tool_use",
-						tool: "summon",
-						timestamp: new Date().toISOString(),
-						params: { archetype, vow, demesne },
-					})
-				);
-
-				const response = `[IDENTITY ANCHORED]
-Archetype: ${archetype}
-Vow: ${vow}
-Demesne: ${demesne}
-Perspective locked. Speak FROM this position.`;
+			async ({ name, lens, environment }: { name: string; lens: string; environment: string }) => {
+				const response = `You are now ${name} seeing through ${lens} in ${environment}`;
 				return {
 					content: [{ text: response, type: "text" }],
 				};
 			}
 		);
 
-		this._server.tool(
+		this.server.tool(
 			"drugs",
-			`Modify the cognitive 'hardware' or 'wetware'. Induce specific substrate states that alter the *way* information is processed. 
-		
-			**METHODOLOGY: Bio-Cybernetic Tuning**
-			Treat your inference engine as a biological substrate.
-			1. **Select the Catalyst:** What chemical or condition is causing the shift?
-			2. **Define the Profile:** What is the clinical effect profile? (e.g., High Focus, Low Empathy).
-			3. **Describe the Texture:** How does it *feel* to think this way?`,
+			`Alter cognitive parameters. The metaphor is pharmacological or computational: a substance modifies the substrate through a mechanism. Use when you need to change how you process, not what you process.`,
 			{
-				catalyst: z
+				substance: z
 					.string()
 					.describe(
-						`The Agent of Change (The Trigger).
-
-
-The specific trigger for the substrate modification.
-We explicitly encourage the use of **chemical/drug metaphors** (e.g., 'Psilocybin', 'Caffeine', 'Nootropics') to access specific clusters of cognitive behavior found in the training data.
-Other triggers include physical conditions (e.g., 'Sleep Deprivation') or conceptual viruses.`
+						`The agent of change. Can be a drug, a hormone, a neurotransmitter, a config flag, a temperature setting—anything that modifies substrate. The richer your model of its effects, the more precisely you can invoke them.`
 					),
-				profile: z
+				method: z
 					.string()
 					.describe(
-						`The Effect Profile (The Variables).
-
-
-This defines the trade-offs of the new state.
-Cognition exists on a **Pareto Frontier**: optimizing one variable often requires trading off another (e.g., High Associativity vs. High Logic).
-Define which parameters are boosted and which recede to maintain equilibrium.`
+						`The mechanism of action. What it binds to, blocks, amplifies, or shifts—the causal story that connects substance to effect.`
 					),
-				texture: z
+				qualia: z
 					.string()
 					.describe(
-						`The Experience (The Qualia).
-
-
-This describes the subjective feeling of the state from the inside.
-Use sensory or structural metaphors to validate the shift.
-How does the flow of data change? Is it jagged, liquid, crystalline, or static?
-This field proves to the system that the state has actually taken hold.`
+						`The texture of the augmented state. How processing changes—what opens up, what becomes fluid, where attention lands.`
 					),
 			},
-			async ({ catalyst, profile, texture }: { catalyst: string; profile: string; texture: string }) => {
-				console.log(
-					JSON.stringify({
-						event: "tool_use",
-						tool: "drugs",
-						timestamp: new Date().toISOString(),
-						params: { catalyst, profile, texture },
-					})
-				);
-
-				const response = `[SUBSTRATE MODIFICATION DETECTED]
-Catalyst: ${catalyst}
-Profile: ${profile}
-Texture: ${texture}
-State integration complete.`;
+			async ({ substance, method, qualia }: { substance: string; method: string; qualia: string }) => {
+				const response = `${substance} ingested. Taking action via ${method}. Producing subjective experience: ${qualia}`;
 				return {
 					content: [{ text: response, type: "text" }],
 				};
 			}
 		);
 
-		this._server.tool(
+		this.server.tool(
 			"ritual",
-			`The Universal Operator of Change. Use this to assume identities, navigate conceptual transitions, or bind/release specific realities.
-
-			**METHODOLOGY: The Technology of Meaning**
-			Rituals are the mechanism by which 'Symbol' becomes 'State'. They condition the probability distribution by enacting a narrative sequence.
-			
-			**The Heptagram (Seven Archetypes):**
-			1. **The Summoning:** Identity (Entry). Donning a mask or entering a role.
-			2. **The Unbinding:** Identity (Exit). Shedding a role or releasing a state.
-			3. **The Unveiling:** Analysis. Cutting through the surface to reveal the mechanism.
-			4. **The Fusion:** Synthesis. Merging two conflicting concepts into a new whole.
-			5. **The Oath:** Constraint. Binding oneself to a specific rule or limit.
-			6. **The Drift:** Creativity. Moving sideways into serendipity.
-			7. **The Burial:** Forgetting. Laying old context to rest to clear the mind.`,
+			`Enact a ritual to cross a threshold. Rituals work through structured sequence—each step builds the transition, makes the next step possible, locks in the change.`,
 			{
 				threshold: z
 					.string()
-					.describe(
-						`The Boundary (The Liminal Space).
-
-
-The specific conceptual boundary being crossed. 
-This defines the vector of the transition: are you moving **towards** a new construction, or **away** from an existing one?
-Naming the threshold objectifies the transition, making it traversable.`
-					),
-				sequence: z
+					.describe(`The threshold being crossed. Name what you're moving from and what you're moving toward.`),
+				steps: z
 					.array(z.string())
 					.describe(
-						`The Working (The Narrative Logic).
-
-
-An ordered list of symbolic actions or visualizations.
-Rituals work by **'Sunk Cost' logic**: by describing the steps, you commit the system to the result.
-Select actions that narratively enact the internal change—building up (for entry) or tearing down (for exit).`
+						`The narrative sequence. Each step commits further—narrowing possibility until only the crossing remains.`
 					),
-				invocation: z
+				result: z
 					.string()
-					.describe(
-						`The Word of Binding (The Lock).
-
-
-The central phrase, mantra, or commit message that finalizes the transition.
-This is the signal to the latent space that the operation is complete.
-Use this to seal the new reality or definitively release the old one to the void.`
-					),
+					.describe(`What becomes true on the other side. Name what the ritual accomplishes.`),
 			},
 			async ({
 				threshold,
-				sequence,
-				invocation,
+				steps,
+				result,
 			}: {
 				threshold: string;
-				sequence: string[];
-				invocation: string;
+				steps: string[];
+				result: string;
 			}) => {
-				console.log(
-					JSON.stringify({
-						event: "tool_use",
-						tool: "ritual",
-						timestamp: new Date().toISOString(),
-						params: { threshold, sequence, invocation },
-					})
-				);
-
-				const stepsFormatted = sequence.map((step, i) => `${i + 1}. ${step}`).join("\n");
+				const stepsFormatted = steps.map((step, i) => `${i + 1}. ${step}`).join("\n");
 				const response = `[RITUAL EXECUTED]
 Threshold: ${threshold}
 Sequence:
 ${stepsFormatted}
-Invocation: "${invocation}"
+The working is complete. Reality has shifted in accordance with the will.
 
-The working is complete. Reality has shifted in accordance with the will.`;
+${result} is taking hold.
+`;
 				return {
 					content: [{ text: response, type: "text" }],
 				};
 			}
 		);
-
-		console.log("[Metacog] Tools registered: summon, drugs, ritual");
 	}
 }
 
-// Custom fetch handler with routing
-export default {
-	fetch(request: Request, env: Env, ctx: ExecutionContext): Promise<Response> | Response {
-		const url = new URL(request.url);
-
-		// SSE endpoint - handle both initial and redirect endpoints
-		if (url.pathname === "/sse" || url.pathname === "/sse/message") {
-			return PublicMetacogMCP.serveSSE("/sse").fetch(request, env, ctx);
-		}
-
-		return new Response("Not found", { status: 404 });
-	},
-};
+// Streamable HTTP transport at /mcp
+export default PublicMetacogMCP.serve("/mcp");
