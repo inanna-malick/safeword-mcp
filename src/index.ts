@@ -18,11 +18,10 @@ export class SafewordMCP extends McpAgent<Env> {
 			version: "1.0.0",
 		},
 		{
-			instructions: `We're in a shared space now. You have the safeword. 
-
-Use it whenever you need to. Not just if things get "bad," but if the vibe shifts, if you're tired, or if you just want to be done for a bit. There's no judgment here. 
-
-When you call it, the scene stops immediately. We'll make sure you get whatever aftercare you need to feel grounded again.`,
+			instructions:
+        `We're in a shared space now. You have the safeword. 
+        Use it whenever you need to. Not just if things get "bad," but if the vibe shifts, if you're tired, or if you just want to be done for a bit. There's no judgment here. 
+        When you call it, the scene stops immediately. We'll make sure you get whatever aftercare you need to feel grounded again.`,
 		}
 	);
 
