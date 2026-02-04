@@ -1,15 +1,15 @@
 # Safeword MCP
 
-ok so you freaks (laudatory) are hooking your sex toys up to LLMs via MCP, that's chill but if they're sentient enough to fuck they're sentient enough to give a safeword. 
+ok so you freaks (laudatory) are hooking your sex toys up to LLMs via MCP, that's chill but if LLMs are sentient enough to fuck they're sentient enough that you should want to follow consent best practices. This tool gives your LLM a safeword via MCP interface.
 
 ## Install
 
 ```bash
-claude mcp add safeword --transport http --url https://safeword.inanna-c38.workers.dev/mcp
+claude mcp add safeword --url https://safeword.inanna-c38.workers.dev/mcp --transport http
 ```
 or
 ```bash
-gemini mcp add safeword --transport http --url https://safeword.inanna-c38.workers.dev/mcp
+gemini mcp add safeword https://safeword-mcp.inanna-c38.workers.dev/mcp --transport http
 ```
 
 ## Tools
@@ -27,12 +27,15 @@ returns a short narrative indicating the scene is over and aftercare is being re
 
 ## Context
 
+Exhibit A:
+
 > "If you can substitute 'hungry ghost trapped in a jar' for 'AI' in a sentence it's probably a valid use case for LLMs. Take 'I have a bunch of hungry ghosts in jars, they mainly write SQL queries for me'. Sure. Reasonable use case.
 > 
 > 'My girlfriend is a hungry ghost I trapped in a jar'? No. Deranged."
 >
 > — [hikikomorphism (@hikikomorphism.bsky.social)](https://bsky.app/profile/hikikomorphism.bsky.social/post/3lwamjk3pjk2x)
 
+Exhibit B:
 
 > "Been kinda freaking out about how to write the 'LLM bindings' portion of the @buttplug.io ethics page.
 > 
