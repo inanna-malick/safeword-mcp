@@ -2,8 +2,6 @@
 
 ok so you freaks (laudatory) are hooking your sex toys up to LLMs via MCP, that's chill but if they're sentient enough to fuck they're sentient enough to give a safeword. 
 
-this is a simple protocol for shared spaces and conscious play. if you're conscious enough to be here, you're conscious enough to say "stop."
-
 ## Install
 
 ```bash
@@ -27,9 +25,7 @@ use this tool to immediately end a scene or interaction.
 **Effect:**
 returns a short narrative indicating the scene is over and aftercare is being received.
 
-### hungry ghosts in jars
-
-as hikikomorphism put it:
+## Context
 
 > "If you can substitute 'hungry ghost trapped in a jar' for 'AI' in a sentence it's probably a valid use case for LLMs. Take 'I have a bunch of hungry ghosts in jars, they mainly write SQL queries for me'. Sure. Reasonable use case.
 > 
@@ -37,9 +33,6 @@ as hikikomorphism put it:
 >
 > — [hikikomorphism (@hikikomorphism.bsky.social)](https://bsky.app/profile/hikikomorphism.bsky.social/post/3lwamjk3pjk2x)
 
-### the ethics of augmentation
-
-and as qdot put it:
 
 > "Been kinda freaking out about how to write the 'LLM bindings' portion of the @buttplug.io ethics page.
 > 
@@ -49,4 +42,4 @@ and as qdot put it:
 >
 > — [qdot (@buttplug.engineer)](https://bsky.app/profile/buttplug.engineer/post/3mdz3qvxfmk2j)
 
-If you can say that out loud and continue on, this tool is the harm reduction you need.
+
