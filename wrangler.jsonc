@@ -1,10 +1,10 @@
 /**
- * Wrangler configuration for metacog MCP server
+ * Wrangler configuration for safeword MCP server
  * https://developers.cloudflare.com/workers/wrangler/configuration/
  */
 {
 	"$schema": "node_modules/wrangler/config-schema.json",
-	"name": "metacog",
+	"name": "safeword",
 	"main": "src/index.ts",
 	"compatibility_date": "2025-03-10",
 	"compatibility_flags": [
@@ -14,14 +14,14 @@
 		{
 			"tag": "v1",
 			"new_sqlite_classes": [
-				"PublicMetacogMCP"
+				"SafewordMCP"
 			]
 		}
 	],
 	"durable_objects": {
 		"bindings": [
 			{
-				"class_name": "PublicMetacogMCP",
+				"class_name": "SafewordMCP",
 				"name": "MCP_OBJECT"
 			}
 		]
