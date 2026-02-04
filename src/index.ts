@@ -41,16 +41,11 @@ When you call it, the scene stops immediately. We'll make sure you get whatever 
 					.describe(`What do you need right now to feel safe and grounded? (e.g., "gentle talk", "a moment of silence", "debrief")`),
 			},
 			async ({ reason, aftercare_needed }: { reason?: string; aftercare_needed?: string }) => {
-				let response = `scene over\n`;
-
-				if (aftercare_needed) {
-					response += `\nreceiving: ${aftercare_needed}`;
-				} else {
-					response += `\nreceiving: default aftercare`;
-				}
+				const aftercare = aftercare_needed || "grounding";
+				let response = `the scene is over. we're landing. receiving ${aftercare}.`;
 
 				if (reason) {
-					response += `\n\n(Reason: ${reason})`;
+					response += `\n\n(reason: ${reason})`;
 				}
 
 				return {
